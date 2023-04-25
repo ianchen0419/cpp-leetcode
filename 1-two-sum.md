@@ -102,5 +102,5 @@ hey[199] = 1;
 
 * `po hey`，回傳size=3
 * `po hey[98]`，回傳10
-* `po hey.count(199)，回傳1
+* `po hey.count(199)`，回傳1
         
