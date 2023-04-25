@@ -81,3 +81,26 @@ public:
 };
 ```
 
+### Debug筆記
+
+善用lldb的`po`指令印出資料，練習C++語法
+
+練習使用umap建立資料
+
+```cpp
+unordered_map<int, int> hey;
+hey[9] = 0;
+hey[98] = 10;
+hey[199] = 1;
+```
+
+在結尾處設定Breakpoint
+
+![](https://user-images.githubusercontent.com/19959819/234313267-1257d46d-1f58-4afd-b779-dfeecd707f2f.png)
+
+執行，並且在右下角的lldb視窗輸入以下：
+
+* `po hey`，回傳size=3
+* `po hey[98]`，回傳10
+* `po hey.count(199)，回傳1
+        
