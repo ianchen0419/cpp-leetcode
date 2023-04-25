@@ -46,3 +46,38 @@ public:
 
 時間複雜度: $O(n)$
 
+
+### 知識筆記：`unordered_map`
+
+1. 哈希表使用`unordered_map`儲存，不會儲存重複的value，需要引入標頭檔`<unordered_map>`
+2. umap的寫入寫法：`umap[value] = index;`
+3. umap的存取寫法：`umap[value]; // 回傳index`
+4. umap中查詢是否存在：`umap.count(n);`，若存在返回`1`，反之返回`nil`
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> answer;
+        
+        // 將所有元素的索引存成哈希表，寫法為umap[value] = index
+        unordered_map<int, int> indies;
+        for(int i = 0; i < nums.size(); ++i) {
+            indies[nums[i]] = i;
+        }
+        
+        // 計算減去的值
+        for(int i = 0; i < nums.size(); ++i) {
+            int left = target - nums[i];
+            // umap.count()，若存在返回1
+            if (indies.count(left) && indies[left] != i) { // 因為每個元素只能被用一次，所以要排掉重復使用
+                answer = {i, indies[left]};
+            }
+        }
+        
+        
+        return answer;
+    }
+};
+```
+
