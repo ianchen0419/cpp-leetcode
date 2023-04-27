@@ -12,7 +12,7 @@
 ```cpp
 struct Node {
   int data; // 該節點的值
-  Node* next; // 下一個節點的記憶體位置
+  Node *next; // 下一個節點的記憶體位置
 }
 ```
 
@@ -25,7 +25,7 @@ struct Node {
 ```cpp
 struct Node {
     int data;
-    Node* next;
+    Node *next;
 };
 
 int main() {
