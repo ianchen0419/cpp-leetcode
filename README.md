@@ -21,7 +21,7 @@ struct Node {
 * 需要再有一個獨立指標變數，儲存第一個節點的記憶體位置，稱作`pHead`，表頭指標
 * 最後一個節點的`next`連結，會是一個`null`指標
 
-練習：建立一個
+練習：建立一個Node
 ```cpp
 struct Node {
     int data;
