@@ -88,7 +88,7 @@ void insert_node(Node** head_ref, int new_data) {
 int main() {
   Node* head_href = nullptr;
     
-  insert_node(&head_href, 1);
+  insert_node(&head_href, 1); //&head_ref是指針變數head_href的指針
   insert_node(&head_href, 2);
   insert_node(&head_href, 3);
     
