@@ -179,3 +179,6 @@ flowchart LR
     classDef tail stroke:#f66
 ```
 
+* dummy是所謂的第0項，為了串起整串Linked List而設置的head，因為不列入答案之中，所以如果要印出答案的話，要特別將它刪除
+* 每次計算完後，tail的位置都會往右移動
+* 計算取l1跟l2跟carry的總和（sum），除以10之後，餘數填入tail內，商數則變為下一輪的carry
