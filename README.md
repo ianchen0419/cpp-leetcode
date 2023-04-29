@@ -21,7 +21,22 @@ struct Node {
 * 需要再有一個獨立指標變數，儲存第一個節點的記憶體位置，稱作`pHead`，表頭指標
 * 最後一個節點的`next`連結，會是一個`null`指標
 
+```mermaid
+flowchart LR
+    pHead{{pHead}}:::orange-->node1[Node]
+    node1-.->data1{{data}}
+    node1-.->next1{{next}}:::orange
+    next1-->node2[Node]
+    node2-.->data2{{data}}
+    node2-.->next2{{next}}:::orange
+    next2-->id3[Node]
+    id3-.->data3{{data}}
+    id3-.->next3{{next}}:::orange
+    next3-->node4[nullptr]
 
+    classDef orange fill:#f96
+        
+```
 
 練習：建立一個Node
 ```cpp
@@ -98,19 +113,4 @@ int main() {
 }
 ```
 
-```mermaid
-flowchart LR
-    pHead{{pHead}}:::orange-->node1[Node]
-    node1-.->data1{{data}}
-    node1-.->next1{{next}}:::orange
-    next1-->node2[Node]
-    node2-.->data2{{data}}
-    node2-.->next2{{next}}:::orange
-    next2-->id3[Node]
-    id3-.->data3{{data}}
-    id3-.->next3{{next}}:::orange
-    next3-->node4[nullptr]
 
-    classDef orange fill:#f96
-        
-```
