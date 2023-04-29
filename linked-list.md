@@ -160,9 +160,9 @@ while (l1 || l2 || carry) {
   l1, l2 = l1?.next, l2?.next;
 }
 ```
-
-綠底：dummy位置
-紅框：tail位置
+圖表範例：
+* 綠底：dummy位置
+* 紅框：tail位置
 
 ```mermaid
 flowchart LR
