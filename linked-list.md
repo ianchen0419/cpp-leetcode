@@ -160,3 +160,21 @@ while (l1 || l2 || carry) {
   l1, l2 = l1?.next, l2?.next;
 }
 ```
+
+綠底：dummy位置
+紅框：tail位置
+
+```mermaid
+flowchart LR
+    c1r1[0]:::dummyTail
+    c1r2[0]:::dummy-->c2r2[7]:::tail
+    c1r3[0]:::dummy-->c2r3[7]-->c3r3[0]:::tail
+    c1r4[0]:::dummy-->c2r4[7]-->c3r4[0]-->c4r4[1]:::tail
+    c1r5[0]:::dummy-->c2r5[7]-->c3r5[0]-->c4r5[1]-->c5r5[5]:::tail
+
+    classDef orange fill:#f96
+    classDef dummyTail fill:#ecffec,stroke:#f66
+    classDef dummy fill:#ecffec
+    classDef tail stroke:#f66
+    classDef green fill:#ecffec
+```
