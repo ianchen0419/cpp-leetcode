@@ -183,4 +183,4 @@ flowchart LR
 * 每次計算完後，tail的位置都會往右移動
 * 計算取l1跟l2跟carry的總和（sum），除以10之後，餘數填入tail內，商數則變為下一輪的carry
 
-此算法的時間複雜度為 $O(max(n, m))$，空間複雜度也是$O(max(n, m))$。`n`是l1的長度，`m`是l2的長度，取最長的Linked List的長度
+此算法的時間複雜度為 $O(max(n, m))$，空間複雜度也是 $O(max(n, m))$，`n`是l1的長度，`m`是l2的長度，取最長的Linked List的長度
