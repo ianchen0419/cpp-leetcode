@@ -114,7 +114,7 @@ int main() {
 
 ## 練習：加法計算
 
-給定2個Linked List，Linked List儲存反序的一組數字，相加計算
+給定2個Linked List，`l1`與`l2`，各儲存反序的一組數字，相加計算
 
 例如：
 ```mermaid
@@ -129,3 +129,34 @@ flowchart LR
 
 1. 兩組Linked List的長度不同，例如123+456789
 2. 總和具有更多位數：例如99+11=110
+
+
+```cpp
+// 建立名為dummmy的Node，當作第0項
+ListNode dummy = ListNode(0);
+
+// 建立tail，儲存最後一項的Node，每計算一個位數tail就會往後移動，初始情況下tail等於dummy的位置
+ListNode tail = dummy;
+
+
+// l1不為空 或 l2不為空 或 carry不為空 時，持續跑回圈
+// carry表示十進位後模除10的餘數，例如9+1=12，carry為2
+while (l1 || l2 || carry) {
+  
+  // 計算單元位數的總和
+  int sum;
+  sum = l1?.val + l2?val + carry;
+  
+  // 將總和模除10，並且帶入next項
+  tail.next = ListNode(sum % 10);
+  
+  // 往後移動tail的位置
+  tail = tail.next;
+  
+  // 計算carry值
+  carry = sum /= 10;
+  
+  // 分別移動l1, l2的位置
+  l1, l2 = l1?.next, l2?.next;
+}
+```
