@@ -38,8 +38,6 @@ int main {
 
 ①調用`main()`
 
-C++程式的第一步會調用`main()`，在Stack區塊建立一個名為`main()`的堆疊禎（Stack Frame），並且，該堆疊禎會儲存此函數的所有參數以及返回值
-
 ```diff c
 int total;
 
@@ -64,9 +62,77 @@ int SquareOfSum(int x, int y) {
 }
 ```
 
+C++程式的第一步會調用`main()`，在Stack區塊建立一個名為`main()`的堆疊禎（Stack Frame），並且，該堆疊禎會儲存此函數的所有參數以及返回值
+
 ```mermaid
 flowchart
     subgraph Stack
     a1["main()\na, b"]
     end
+```
+
+②建立全域變數`total`
+
+```diff c
+int total;
+
+int Square(int x) {
+ return x*x;
+}
+
+int SquareOfSum(int x, int y) {
+  int z = Square(x+y);
+  return z;
+}
+
+int main {
+  int a = 4;
+  int b = 8;
+  
++ total = SquareOfSum(a, b);
+  
+  printf("output = %d", total);
+
+  return 0;
+}
+```
+
+接下來，在Global/Static區塊，畫出一塊位置，建立全域變數`total`
+
+
+```mermaid
+flowchart
+    subgraph Stack
+    a1["main()\na, b"]
+    end
+
+    subgraph Global/Static
+    b1[total]
+    end
+```
+
+③調用`SquareOfSum()`
+
+```diff c
+int total;
+
+int Square(int x) {
+ return x*x;
+}
+
++int SquareOfSum(int x, int y) {
+  int z = Square(x+y);
+  return z;
+}
+
+int main {
+  int a = 4;
+  int b = 8;
+  
+  total = SquareOfSum(a, b);
+  
+  printf("output = %d", total);
+
+  return 0;
+}
 ```
