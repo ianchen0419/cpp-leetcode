@@ -34,6 +34,39 @@ int main {
 
   return 0;
 }
+```
 
+①調用`main()`
 
+C++程式的第一步會調用`main()`，在Stack區塊建立一個名為`main()`的堆疊禎（Stack Frame），並且，該堆疊禎會儲存此函數的所有參數以及返回值
+
+```diff c
+int total;
+
+int Square(int x) {
+ return x*x;
+}
+
+int SquareOfSum(int x, int y) {
+  int z = Square(x+y);
+  return z;
+}
+
++int main {
+  int a = 4;
+  int b = 8;
+  
+  total = SquareOfSum(a, b);
+  
+  printf("output = %d", total);
+
+  return 0;
+}
+```
+
+```mermaid
+flowchart
+    subgraph Stack
+    a1["main()\na, b"]
+    end
 ```
