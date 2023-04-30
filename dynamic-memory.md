@@ -588,3 +588,24 @@ flowchart LR
     style s1 opacity:0.3,color:#0000003b
     style b1 opacity:0.3,color:#0000003b
 ```
+
+## 動態內存分配：C++版本
+
+基本邏輯不變，語法改成`new`與`delete`
+
+```c
+int main {
+  int a;
+  int *p;
+  
+  p = new int; // 分配內存
+  *p = 10;
+  
+  delete p; // 清空內存
+ 
+  p = new int[20] // 再次分配內存，分配長度20個數字的陣列
+  delete[] p; // 清空Array內存，需使用delete[]
+
+  return 0;
+}
+```
