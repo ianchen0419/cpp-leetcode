@@ -429,7 +429,7 @@ flowchart LR
     end
 ```
 
-使用`malloc`，跟Heap要求一塊空間，Heap分配出了`0x200`這塊地址，Stack當中的指針變數`p`連結到`0x200`
+使用`malloc`，跟Heap要求一塊2bye的空間，Heap挖了一段空間出來：`0x200`~`0x400`，這段空間的起點是`0x200`，於是malloc回傳`0x200`，Stack當中的指針變數`p`就連結到`0x200`
 
 ```diff c
 int main {
