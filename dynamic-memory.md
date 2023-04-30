@@ -276,6 +276,90 @@ flowchart
     classDef disabled fill:#ccc,stroke:#ccc,color:#fff
 ```
 
-`main()`計算完畢，C++程式結束
+### 6. 執行`printf()`
 
+程式回到了`main()`繼續往下執行剩下的部分
+
+```diff c
+int total;
+
+int Square(int x) {
+ return x*x;
+}
+
+int SquareOfSum(int x, int y) {
+  int z = Square(x+y);
+  return z;
+}
+
+int main {
+  int a = 4;
+  int b = 8;
+  
+  total = SquareOfSum(a, b);
+  
++ printf("output = %d", total);
+
+  return 0;
+}
+```
+
+因為遇到了新的函示，因此往Stack放入堆疊禎`printf()`，暫停運作`main()`，`執行printf()`
+
+```mermaid
+flowchart
+    subgraph Stack
+    a4["printf()"]
+    a1["main()\na, b"]:::disabled
+    end
+
+    subgraph Global/Static
+    b1[total]
+    end
+    
+    classDef disabled fill:#ccc,stroke:#ccc,color:#fff
+```
+
+當`printf()`執行完畢後，Stack刪除`printf()`，並且讓`main()`恢復
+
+```mermaid
+flowchart
+    subgraph Stack
+    a1["main()\na, b"]
+    end
+
+    subgraph Global/Static
+    b1[total]
+    end
+```
+
+
+### 7. 結束
+
+最後，`main()`執行完畢，Stack清除`main()`
+
+```mermaid
+flowchart
+    subgraph Stack
+    a0["  "]
+    end
+
+    subgraph Global/Static
+    b1[total]
+    end
+```
+
+C++結束程式，將Global/Static當中儲存的Global變數`total`清空，Stack跟Global/Static都淨空了
+
+```mermaid
+flowchart
+    subgraph Stack
+    a0["  "]
+    end
+
+    subgraph Global/Static
+    b0["  "]
+    end
+  
+```
 
