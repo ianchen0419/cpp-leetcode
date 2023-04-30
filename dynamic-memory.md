@@ -593,7 +593,7 @@ flowchart LR
 
 基本邏輯不變，語法改成`new`與`delete`
 
-```c
+```cpp
 int main {
   int a;
   int *p;
@@ -608,4 +608,32 @@ int main {
 
   return 0;
 }
+```
+
+## 補充：C跟Java的差異
+
+在C++中，當聲明class時，可以隨程序員決定要放在Stack或是放在Heap當中
+
+```cpp
+class Animal { 
+    int data; 
+} 
+
+main() {
+  Animal dog; // 建立一個class，並且放入Stack
+  
+  Animal* cat = new Animal(); // class本體會在Heap當中被建立，Heap丟回內存位置讓cat記下來
+}
+```
+
+在Java，因為class只能被引用創建，所以基本上就是都在Heap
+
+```java
+class Animal {
+    int data;
+}
+
+Animal dog; // 因為沒有引用，所以dog等於null
+
+Animal dog = new Animal(); // 在Heap中建立class
 ```
