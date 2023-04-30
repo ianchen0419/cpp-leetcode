@@ -378,3 +378,19 @@ flowchart
 ```
 
 最開始規劃的1mb會被用完，程式會壞掉，這就是堆疊溢出
+
+## 動態內存分配
+
+C語言當中有關動態內存分配的functions
+
+* `malloc`
+* `calloc`
+* `realloc`
+* `free`
+
+C++語言當中有關動態內存分配的operators
+
+* `new`
+* `delete`
+
+C++一樣能夠使用C語言的那4個，但是寫C++的話主要還是使用`new`跟`delete`
