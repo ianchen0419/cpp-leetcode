@@ -277,3 +277,80 @@ flowchart
 開頭有提到i的計算方式為`max(i, 被踢掉的人的index + 1)`，但是上面的範例看下來每次i就只有拿被踢+1而已，看不出來為什麼需要跟舊i比大小，這邊再補充一個範例說明
 
 `s="abba"`
+
+### 滑動第零次
+
+起點與終點皆為0，歷史紀錄錄入`{a: 0}`
+
+```mermaid
+flowchart
+    a1[a]
+    a2[b]:::clear
+    a3[b]:::clear
+    a4[a]:::clear
+
+    classDef clear opacity:0.2
+```
+
+### 滑動第一次
+
+起點0，終點為1，新增歷史紀錄，歷史紀錄變為`{a: 0, b: 1}`
+
+```mermaid
+flowchart
+    a1[a]
+    a2[b]
+    a3[b]:::clear
+    a4[a]:::clear
+
+    classDef clear opacity:0.2
+```
+
+### 滑動第二次
+
+終點為2，出現了重複的字元b
+
+```mermaid
+flowchart
+    a1[a]
+    a2[b]
+    a3[b]
+    a4[a]:::clear
+
+    classDef clear opacity:0.2
+```
+
+移除重複的b，順便連a也一起陪葬，起點變為2
+
+新的b取代了原本的b，歷史紀錄變為`{a: 0, b: 2}`  
+
+注意：被陪葬刪去的舊a資料仍舊存在於歷史資料當中 
+
+```mermaid
+flowchart
+    a1[a]:::clear
+    a2[b]:::clear
+    a3[b]
+    a4[a]:::clear
+
+    classDef clear opacity:0.2
+```
+
+### 滑動第三次
+
+終點為3，這時，雖然圖面上來看已經沒有{a: 0}這個人的存在了，但是由於前一次的歷史紀錄**並沒有刪除{a: 0}**，所以程式還是會先檢查一遍歷史紀錄[a]在不在，得到YES, It is 0，並且讓起點為0+1=1
+
+看著下圖就可以得知，正確起點為2，我們算出了錯誤的起點
+
+```mermaid
+flowchart
+    a1[a]:::clear
+    a2[b]:::clear
+    a3[b]
+    a4[a]
+
+    classDef clear opacity:0.2
+```
+
+為了避免起點算錯，才會需要起點為`max(舊起點, 被踢掉的人的index + 1)`的公式，當我們透過錯誤的邏輯得到了起點為1時，這時通過公式比較max(舊起點, 計算出的新起點)計算：  
+舊起點為2，計算後的新起點為1，2大於1，所以起點仍舊是2
