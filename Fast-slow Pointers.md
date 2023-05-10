@@ -70,4 +70,14 @@ flowchart LR
 
 ## 環狀Linked List
 
+在遇到環之前有p個節點，p為a、b、c，一共3個  
+環內中有q個節點，q為c、d、e，共3個
 
+```mermaid
+flowchart LR
+    a-->b
+    b-->c
+    c-->d
+    d-->e
+    e-->c
+```
