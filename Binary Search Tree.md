@@ -2,11 +2,15 @@
 
 ```mermaid
 flowchart TB
-    r((70))-->a1
-    a1((60))-->a2((50))
-    a1-->a3((65))
-    r-->b1
-    b1((80))-->b2((85))
+    r((70))---a1
+    a1((60))---a2((50))
+    a1---a3((65))
+    r---b1
+    b1((80))---b2((85))
+    b1---b3(( )):::clear
+    
+    linkStyle 5 opacity:0
+    classDef clear opacity:0
 ```
 
 規則：左小右大
@@ -15,16 +19,17 @@ flowchart TB
 * 左子樹也是BST、右子樹也是BST
 * 每個鍵值都不一樣
 
-## BST的加入
+## 二元搜尋樹的新增
 
 有一BST如下，欲加入48
 ```mermaid
 flowchart TB
-    r:::green-->a1
-    a1-->a2
-    a1-->a3
-    r-->b1
-    b1-->b2
+    r---a1
+    a1---a2
+    a1---a3
+    r---b1
+    b1---b2
+    b1---b3
 
     r((50))
 
@@ -34,6 +39,12 @@ flowchart TB
 
     b1((65))
     b2((60))
+    b3(( )):::clear
+    
+    linkStyle 5 opacity:0
+    classDef orange fill:#f96,stroke:#f66
+    classDef green fill:#ecffec
+    classDef clear opacity:0
 ```
 
 首先檢查樹根，判斷插入節點`48`小於樹根的`50`，因此往樹根左側走
@@ -125,4 +136,89 @@ flowchart TB
     classDef green fill:#ecffec
     classDef clear opacity:0
     style a5 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+```
+
+## 二元搜尋樹的搜尋
+
+假設有一BST如下，欲搜尋「55」這一節點
+
+```mermaid
+flowchart TB
+    r---a1
+    a1---a2
+    a1---a3
+    a3---a4
+    a3---a5
+    r---b1
+    b1---b2
+    b1---b3
+    b3---b4
+    b3---b5
+    b5---b6
+    b5---b7
+
+    r((40))
+
+    a1((20))
+    a2(( )):::clear
+    a3((30))
+    a4((28))
+    a5((35))
+
+    b1((50))
+    b2(( )):::clear
+    b3((70))
+    b4((55))
+    b5((85))
+    b6((72))
+    b7(( )):::clear
+    
+    linkStyle 1 opacity:0
+    linkStyle 6 opacity:0
+    linkStyle 11 opacity:0
+    classDef orange fill:#f96,stroke:#f66
+    classDef green fill:#ecffec
+    classDef clear opacity:0
+```
+
+首先，檢查樹根40，搜尋目標55大於40，因此往右走
+
+```mermaid
+flowchart TB
+    r:::green---a1
+    a1---a2
+    a1---a3
+    a3---a4
+    a3---a5
+    r---b1
+    b1---b2
+    b1---b3
+    b3---b4
+    b3---b5
+    b5---b6
+    b5---b7
+
+    r((40))
+
+    a1((20))
+    a2(( )):::clear
+    a3((30))
+    a4((28))
+    a5((35))
+
+    b1((50))
+    b2(( )):::clear
+    b3((70))
+    b4((55))
+    b5((85))
+    b6((72))
+    b7(( )):::clear
+    
+    linkStyle 5 stroke:#f96,stroke-width:4px 
+    linkStyle 1 opacity:0
+    linkStyle 6 opacity:0
+    linkStyle 11 opacity:0
+    classDef orange fill:#f96,stroke:#f66
+    classDef green fill:#ecffec
+    classDef clear opacity:0
 ```
