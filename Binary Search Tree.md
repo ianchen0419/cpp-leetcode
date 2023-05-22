@@ -222,3 +222,130 @@ flowchart TB
     classDef green fill:#ecffec
     classDef clear opacity:0
 ```
+
+往下檢查「50」，目標55大於50，繼續往右
+
+```mermaid
+flowchart TB
+    r---a1
+    a1---a2
+    a1---a3
+    a3---a4
+    a3---a5
+    r---b1:::green
+    b1---b2
+    b1---b3
+    b3---b4
+    b3---b5
+    b5---b6
+    b5---b7
+
+    r((40))
+
+    a1((20))
+    a2(( )):::clear
+    a3((30))
+    a4((28))
+    a5((35))
+
+    b1((50))
+    b2(( )):::clear
+    b3((70))
+    b4((55))
+    b5((85))
+    b6((72))
+    b7(( )):::clear
+    
+    linkStyle 7 stroke:#f96,stroke-width:4px 
+    linkStyle 1 opacity:0
+    linkStyle 6 opacity:0
+    linkStyle 11 opacity:0
+    classDef orange fill:#f96,stroke:#f66
+    classDef green fill:#ecffec
+    classDef clear opacity:0
+```
+
+往下檢查「70」目標55小於70，往左
+
+
+```mermaid
+flowchart TB
+    r---a1
+    a1---a2
+    a1---a3
+    a3---a4
+    a3---a5
+    r---b1
+    b1---b2
+    b1---b3:::green
+    b3---b4
+    b3---b5
+    b5---b6
+    b5---b7
+
+    r((40))
+
+    a1((20))
+    a2(( )):::clear
+    a3((30))
+    a4((28))
+    a5((35))
+
+    b1((50))
+    b2(( )):::clear
+    b3((70))
+    b4((55))
+    b5((85))
+    b6((72))
+    b7(( )):::clear
+    
+    linkStyle 8 stroke:#f96,stroke-width:4px 
+    linkStyle 1 opacity:0
+    linkStyle 6 opacity:0
+    linkStyle 11 opacity:0
+    classDef orange fill:#f96,stroke:#f66
+    classDef green fill:#ecffec
+    classDef clear opacity:0
+```
+
+繼續往下，找到節點「55」，目標55與該節點相等，找到目標
+
+```mermaid
+flowchart TB
+    r---a1
+    a1---a2
+    a1---a3
+    a3---a4
+    a3---a5
+    r---b1
+    b1---b2
+    b1---b3
+    b3---b4:::green
+    b3---b5
+    b5---b6
+    b5---b7
+
+    r((40))
+
+    a1((20))
+    a2(( )):::clear
+    a3((30))
+    a4((28))
+    a5((35))
+
+    b1((50))
+    b2(( )):::clear
+    b3((70))
+    b4((55))
+    b5((85))
+    b6((72))
+    b7(( )):::clear
+    
+    %% linkStyle 8 stroke:#f96,stroke-width:4px 
+    linkStyle 1 opacity:0
+    linkStyle 6 opacity:0
+    linkStyle 11 opacity:0
+    classDef orange fill:#f96,stroke:#f66
+    classDef green fill:#ecffec
+    classDef clear opacity:0
+```
