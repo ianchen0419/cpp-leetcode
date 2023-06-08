@@ -269,7 +269,7 @@ flowchart
     end
     
     a((2))
-    c((12)
+    c((12))
 
     classDef popup fill:#f96,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 ```
@@ -288,7 +288,7 @@ flowchart
     end
     
     a((2))
-    c((12):::popup
+    c((12)):::popup
 
     classDef popup fill:#f96,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 ```
@@ -302,7 +302,7 @@ flowchart
         e((34))
         d((20))
         b((18))
-        c((12)
+        c((12))
     end
     
     a((2))
@@ -322,7 +322,7 @@ flowchart
         e((34))
         d((20))
         b((18))
-        c((12)
+        c((12))
     end
     
     a((2)):::popup
@@ -339,7 +339,7 @@ flowchart
         e((34))
         d((20))
         b((18))
-        c((12)
+        c((12))
         a((2))
     end
 ```
